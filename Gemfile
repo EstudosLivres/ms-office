@@ -84,6 +84,8 @@ gem 'nprogress-rails', '~> 0.1.6.7'
 # Bootstrap social buttons
 gem 'bootstrap-social-rails', '~> 4.12'
 
+# Paginate Bootstrap design
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 =begin
  ######################    Additional functionality GEMs    #################################

@@ -20,9 +20,12 @@
                 td =document.name
                 td =l document.created_at, format: :long
                 td =l document.updated_at, format: :long
-                td
+                td.action
+                  =link_to document_reports_path(document) do
+                    i.ti-pie-chart
+                td.action
                   =link_to document_path(document) do
                     i.ti-eye
-                td
+                td.action
                   =link_to document, data: {:confirm => 'Você tem certeza?'}, method: :delete, class: 'text-danger' do
                     i.ti-trash

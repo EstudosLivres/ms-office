@@ -11,18 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623013916) do
+ActiveRecord::Schema.define(version: 20160623200043) do
 
   create_table "columns", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
-    t.integer  "report_id",   limit: 4
     t.integer  "document_id", limit: 4,   null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
   add_index "columns", ["document_id"], name: "index_columns_on_document_id", using: :btree
-  add_index "columns", ["report_id"], name: "index_columns_on_report_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -33,11 +31,13 @@ ActiveRecord::Schema.define(version: 20160623013916) do
 
   create_table "filters", force: :cascade do |t|
     t.integer  "report_id",   limit: 4
+    t.integer  "column_id",   limit: 4
     t.integer  "register_id", limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
+  add_index "filters", ["column_id"], name: "index_filters_on_column_id", using: :btree
   add_index "filters", ["register_id"], name: "index_filters_on_register_id", using: :btree
   add_index "filters", ["report_id"], name: "index_filters_on_report_id", using: :btree
 
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160623013916) do
   end
 
   add_foreign_key "columns", "documents"
-  add_foreign_key "columns", "reports"
+  add_foreign_key "filters", "columns"
   add_foreign_key "filters", "registers"
   add_foreign_key "filters", "reports"
   add_foreign_key "registers", "columns"

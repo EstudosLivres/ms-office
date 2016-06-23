@@ -1,5 +1,12 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only: [:unique_registers, :show, :edit, :update, :destroy]
+
+  # GET /documents/:id/unique_registers
+  # GET /documents/:id/unique_registers.json
+  def unique_registers
+    @registers = @document.registers.group(:name)
+    render layout: nil
+  end
 
   # GET /documents
   # GET /documents.json

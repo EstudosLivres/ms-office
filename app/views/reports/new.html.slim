@@ -1,5 +1,12 @@
-h1 New report
-
-== render 'form'
-
-= link_to 'Back', reports_path
+.row
+  .col-md-12
+    .card
+      .header
+        h4.title = t('actions.reports.new')
+      .content
+        -if params[:document_id]
+          =render 'form'
+        -else
+           p.center Selecione um Documento Excel anexado
+           -Document.all.each do |document|
+             =link_to document.name, new_document_report_path(document)

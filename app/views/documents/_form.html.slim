@@ -1,4 +1,4 @@
-= form_for @document do |f|
+=form_for @document do |f|
   - if @document.errors.any?
     #error_explanation
       h2 = "#{pluralize(@document.errors.count, "error")} prohibited this document from being saved:"
@@ -6,15 +6,13 @@
         - @document.errors.full_messages.each do |message|
           li = message
 
+  .col-md-12
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control border-input', required: true
 
-  .row
-    .col-md-12
-      .form-group
-        = f.label :name
-        = f.text_field :name, class: 'form-control border-input', required: true
-  .row
-    .col-md-offset-3.col-md-6
-      = f.file_field :file
+  .col-md-offset-3.col-md-6.margin_bottom
+    = f.file_field :file
 
   .row.margin_top
     .col-md-offset-3.col-md-5

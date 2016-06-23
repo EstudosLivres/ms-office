@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :filter do
+    value "MyString"
     report nil
-    register nil
+    column nil
   end
 end

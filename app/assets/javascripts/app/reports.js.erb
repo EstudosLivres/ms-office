@@ -1,0 +1,9 @@
+<% url = MsOfficeReport::Application.routes.url_helpers %>
+
+function setupDocumentRegisters(element) {
+  var element_id = $(element).val();
+
+  $.get('/documents/'+ element_id +'/unique_registers', function(response) {
+    $('#form').html(response);
+  });
+}

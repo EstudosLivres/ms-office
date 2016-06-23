@@ -1,9 +1,16 @@
-p#notice = notice
+-if flash[:alert]
+  .row
+    .alert.alert-warning
+      =alert
+-elsif flash[:notice]
+  .row
+    .alert.alert-info
+      =notice
 
-p
-  strong Name:
-  = @document.name
-
-= link_to 'Edit', edit_document_path(@document)
-'|
-= link_to 'Back', documents_path
+.row
+  .col-md-12
+    .card
+      .header
+        = link_to 'Gerar Relatório', new_document_report_path(@document), class: 'right btn btn-info btn-wd'
+        h4.title ="Documento #{@document.name}"
+        p.category Documento processado

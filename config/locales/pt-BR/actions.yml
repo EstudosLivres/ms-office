@@ -9,6 +9,7 @@ pt-BR:
       destroy: Deletar
 
     reports:
+      special: Relatórios Especiais
       index: Relatórios Gerados
       show: Relatório
       new: Novo Relatório

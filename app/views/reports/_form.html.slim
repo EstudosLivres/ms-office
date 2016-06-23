@@ -6,7 +6,24 @@
         - @report.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions = f.submit
+  .col-md-12
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control border-input', required: true
+
+
+  .col-md-12.margin_top
+    p Informe os valores para cada filtro (o que não for filtrar deixe em branco)
+
+    -@columns.each do |column|
+      =f.fields_for :filters, Filter.new do |ff|
+        .col-md-4
+          .form-group
+            -registers = column.registers
+            = ff.label column.name
+            = ff.collection_select :register, column.registers.group(:value), :id, :formatted_value, {prompt: 'Só selecione caso queira o filtro'}, {class: 'form-control'}
+
+  .row.margin_top
+    .col-md-offset-3.col-md-5
+      .actions = f.submit class: 'right btn btn-success btn-wd'
+      = link_to 'Voltar', documents_path, class: 'left btn btn-info btn-wd'

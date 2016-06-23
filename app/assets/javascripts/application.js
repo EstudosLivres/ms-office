@@ -3,6 +3,7 @@
 //=require jquery.turbolinks
 //=require jquery_ujs
 //=require turbolinks
+//=require bootstrap.min
 
 // Theme (CreativeTim)
 //= require creative-tim/paper_dashboard/bootstrap-checkbox-radio

@@ -1,10 +1,15 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :init_nested, only: [:new, :edit, :update, :create]
 
   # GET /reports
   # GET /reports.json
   def index
     @reports = Report.all
+  end
+
+  # GET /reports/customs
+  def customs
   end
 
   # GET /reports/1
@@ -65,6 +70,18 @@ class ReportsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_report
       @report = Report.find(params[:id])
+    end
+
+    # Initiate it nested dependencies
+    def init_nested
+      @registers = []
+      @documents = Document.all
+
+      if params[:document_id]
+        @document = Document.where(id: params[:document_id]).take
+        @registers = @document.registers.group(:value)
+        @columns = @document.columns
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
