@@ -1,0 +1,6 @@
+# encoding: UTF-8
+# pt-BR translations for Controllers
+pt-BR:
+  controllers:
+    reports: Relatórios Gerados
+    documents: Documentos Excel

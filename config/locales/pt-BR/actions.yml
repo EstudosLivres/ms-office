@@ -1,0 +1,25 @@
+# encoding: UTF-8
+# pt-BR translations for Controllers Actions
+pt-BR:
+  actions:
+    defaults:
+      index: Listar
+      show: Visualizar
+      edit: Editar
+      destroy: Deletar
+
+    reports:
+      index: Relatórios Gerados
+      show: Relatório
+      new: Novo Relatório
+      create: Novo Relatório
+      edit: Atualizar Relatório
+      update: Atualizar Relatório
+
+    documents:
+      index: Documentos (excel)
+      show: Excel
+      new: Cadastrar Documento Excel
+      create: Cadastrar Documento Excel
+      edit: Atualizar Documento Excel
+      update: Atualizar Documento Excel
