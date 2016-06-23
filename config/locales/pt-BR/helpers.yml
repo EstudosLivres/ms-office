@@ -3,7 +3,7 @@ pt-BR:
     select:
       prompt: Por favor selecione uma opção
     submit:
-      create: Criar %{model}
+      create: Processar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
   support:

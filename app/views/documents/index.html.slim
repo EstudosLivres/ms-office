@@ -1,21 +1,28 @@
-h1 Listing documents
-
-table
-  thead
-    tr
-      th Name
-      th
-      th
-      th
-
-  tbody
-    - @documents.each do |document|
-      tr
-        td = document.name
-        td = link_to 'Show', document
-        td = link_to 'Edit', edit_document_path(document)
-        td = link_to 'Destroy', document, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Document', new_document_path
+.row
+  .col-md-12
+    .card
+      .header
+        a.btn.btn-info.btn-wd.right href="#{new_document_path}" =t('actions.documents.new')
+        h4.title Lista de Documentos Excel
+        p.category Submeta quantos arquivos Excel quiser
+      .content.table-responsive.table-full-width
+        table.table.table-striped
+          thead
+            tr
+              th =t('activerecord.attributes.document.name')
+              th =t('activerecord.attributes.created_at')
+              th =t('activerecord.attributes.updated_at')
+              th
+              th
+          tbody
+            - @documents.each do |document|
+              tr
+                td =document.name
+                td =l document.created_at, format: :long
+                td =l document.updated_at, format: :long
+                td
+                  =link_to document_path(document) do
+                    i.ti-eye
+                td
+                  =link_to document, data: {:confirm => 'Você tem certeza?'}, method: :delete, class: 'text-danger' do
+                    i.ti-trash

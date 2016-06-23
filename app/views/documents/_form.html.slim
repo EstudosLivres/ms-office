@@ -6,7 +6,17 @@
         - @document.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions = f.submit
+
+  .row
+    .col-md-12
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: 'form-control border-input', required: true
+  .row
+    .col-md-offset-3.col-md-6
+      = f.file_field :file
+
+  .row.margin_top
+    .col-md-offset-3.col-md-5
+      .actions = f.submit class: 'right btn btn-success btn-wd'
+      = link_to 'Voltar', documents_path, class: 'left btn btn-info btn-wd'

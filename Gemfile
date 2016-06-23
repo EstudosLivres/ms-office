@@ -66,6 +66,9 @@ gem 'materialize-sass', '~> 0.97.6'
 # ionic icons
 gem 'ionicons-rails', '~> 2.0.0'
 
+# Colorize the console puts
+gem 'colorize'
+
 # Only icons from material design
 gem 'material-icons-rails', '~> 0.2.1'
 
@@ -81,13 +84,19 @@ gem 'nprogress-rails', '~> 0.1.6.7'
 # Bootstrap social buttons
 gem 'bootstrap-social-rails', '~> 4.12'
 
-# Chart js gem
-gem 'chartkick', '~> 1.3', '>= 1.3.2'
-gem 'groupdate', '~> 2.1.1'
-gem 'active_median', '~> 0.1.0'
+
+=begin
+ ######################    Additional functionality GEMs    #################################
+=end
 
 # Uploader gem
 gem 'carrierwave', '~> 0.11.2'
+
+# Process MSOffice files
+gem 'rubyXL', '~> 3.3', '>= 3.3.21'
+
+# Better insert perform for BigData
+gem 'activerecord-import', '~> 0.13.0'
 
 
 group :development, :test do
