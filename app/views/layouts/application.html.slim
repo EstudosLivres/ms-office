@@ -15,6 +15,15 @@ html
 
         .content
           .container-fluid
+            - if flash[:alert]
+              .row
+                .alert.alert-warning
+                  = alert
+            - elsif flash[:notice]
+              .row
+                .alert.alert-info
+                  = notice
+
             = yield
 
   =javascript_include_tag 'application', 'data-turbolinks-track' => true

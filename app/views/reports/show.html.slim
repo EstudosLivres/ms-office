@@ -1,9 +1,11 @@
-p#notice = notice
+.row
+  .col-md-12
+    .card
+      .header
+        h4.title ="Relatório #{@report.name}"
+        p.category ="Relatório Gerado em #{l @report.created_at, format: :short}"
 
-p
-  strong Name:
-  = @report.name
-
-= link_to 'Edit', edit_report_path(@report)
-'|
-= link_to 'Back', reports_path
+      .content
+        .row
+          .col-lg-12
+            #pie-chart

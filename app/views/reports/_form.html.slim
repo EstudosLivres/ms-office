@@ -6,11 +6,12 @@
         - @report.errors.full_messages.each do |message|
           li = message
 
+  input type="hidden" name="document_id" value="#{@document.id}"
+
   .col-md-12
     .form-group
       = f.label :name
       = f.text_field :name, class: 'form-control border-input', required: true
-
 
   .col-md-12.margin_top
     p Informe os valores para cada filtro (o que não for filtrar deixe em branco)
